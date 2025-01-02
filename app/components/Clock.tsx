@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 interface ClockProps {
   time: Date;
@@ -15,11 +15,10 @@ export const Clock: React.FC<ClockProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const drawClock = (ctx: CanvasRenderingContext2D) => {
+  const drawClock = useCallback((ctx: CanvasRenderingContext2D) => {
     const centerX = width / 2;
     const centerY = height / 2;
     
-    // 清除画布
     ctx.clearRect(0, 0, width, height);
     
     const hours = time.getHours() % 12;
@@ -67,7 +66,7 @@ export const Clock: React.FC<ClockProps> = ({
     ctx.fillStyle = '#000000';
     ctx.arc(centerX, centerY, 5, 0, Math.PI * 2);
     ctx.fill();
-  };
+  }, [time, width, height]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -76,13 +75,19 @@ export const Clock: React.FC<ClockProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let animationFrameId: number;
+    
     const animate = () => {
       drawClock(ctx);
-      requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
     animate();
-  }, []);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [time, width, height, drawClock]);
 
   return (
     <canvas
