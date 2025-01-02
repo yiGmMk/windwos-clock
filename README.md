@@ -1,4 +1,4 @@
-# Windwos style clock
+# Windows 3.1 Style Clock
 
 用Cursor基于Next.js开发的Windwos风格时钟,部署在vercel上,[点击查看](https://windwos-clock.programnotes.cn).
 
