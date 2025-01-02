@@ -19,3 +19,4 @@
 
 - [Next.js](https://nextjs.org/)
 - [Cursor](https://www.cursor.com/)
+- [Vercel](https://vercel.com/)
