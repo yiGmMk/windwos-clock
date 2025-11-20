@@ -49,7 +49,18 @@ const ScrollBar = ({ horizontal = false }) => {
 
 // --- WINDOW COMPONENT ---
 
-const RiscWindow = ({ title, children, className, width, height, zIndex = 10, withScroll = true, bg = "bg-white" }: any) => (
+interface RiscWindowProps {
+  title: string
+  children: React.ReactNode
+  className?: string
+  width: string
+  height: string
+  zIndex?: number
+  withScroll?: boolean
+  bg?: string
+}
+
+const RiscWindow: React.FC<RiscWindowProps> = ({ title, children, className, width, height, zIndex = 10, withScroll = true, bg = "bg-white" }) => (
     <div
         className={`absolute flex flex-col border border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)] ${className}`}
         style={{ width, height, zIndex }}

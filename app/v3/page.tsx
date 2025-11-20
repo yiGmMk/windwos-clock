@@ -51,7 +51,16 @@ const DitherPattern = () => (
     }}></div>
 );
 
-const WindowFrame = ({ title, children, className, width, height, zIndex = 10 }: any) => (
+interface WindowFrameProps {
+  title: string
+  children: React.ReactNode
+  className?: string
+  width: string
+  height: string
+  zIndex?: number
+}
+
+const WindowFrame: React.FC<WindowFrameProps> = ({ title, children, className, width, height, zIndex = 10 }) => (
     <div
         className={`absolute bg-white border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)] ${className}`}
         style={{ width, height, zIndex }}
