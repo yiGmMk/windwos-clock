@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 用于 Amiga 右下角三角裁切 */
+.clip-triangle {
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}

@@ -7,6 +7,10 @@
 ![preview](./public/backgrounds/bg3.webp)
 ![preview](./public/backgrounds/bg4.webp)
 
+## v2
+
+2025.11.20 使用Google最新大模型 Gemini 3 Pro开发,模拟Windows 3.1风格时钟.
+
 ## 声明
 
 所有图片素材源来自网络,仅供学习参考,请勿用于商业用途.
